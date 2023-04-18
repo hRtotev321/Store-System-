@@ -6,7 +6,21 @@ using System.Threading.Tasks;
 
 namespace StoreSystem
 {
-    internal class Store
+    internal class Store:Product
     {
+        private string name;
+        private string type;
+        private double revenue;
+        private readonly Dictionary<string, List<Product>> products;
+
+        public Store(string name, string type)
+        {
+            this.Name = name;
+            this.Type = type;
+            this.revenue = 0;
+            this.products = new Dictionary<string, List<Product>>();
+        }
+
+        public string Name;
     }
 }
