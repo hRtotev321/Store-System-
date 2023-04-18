@@ -5,85 +5,86 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace StoreSystem
-{ 
-public abstract class Product
 {
-    private string name;
-    private int quantity;
-    private double deliverPrice;
-    private double percentageMarkup;
-
-    public Product(string name, int quantity, double deliverPrice, double percentageMarkup)
+    public abstract class Product
     {
-        this.Name = name;
-        this.Quantity = quantity;
-        this.DeliverPrice = deliverPrice;
-        this.PercentageMarkup = percentageMarkup;
-    }
+        private string name;
+        private int quantity;
+        private double deliverPrice;
+        private double percentageMarkup;
 
-    public string Name
-    {
-        get => this.name;
-        set
+        public Product(string name, int quantity, double deliverPrice, double percentageMarkup)
         {
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                throw new ArgumentException("Product name must not be null or empty!");
-            }
-
-            this.name = value;
+            this.Name = name;
+            this.Quantity = quantity;
+            this.DeliverPrice = deliverPrice;
+            this.PercentageMarkup = percentageMarkup;
         }
-    }
 
-    public int Quantity
-    {
-        get => this.quantity;
-        set
+        public string Name
         {
-            if (value <= 0)
+            get => this.name;
+            set
             {
-                throw new ArgumentException("Quantity cannot be less or equal to 0!");
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException("Product name must not be null or empty!");
+                }
+
+                this.name = value;
             }
-
-            this.quantity = value;
         }
-    }
 
-    public double DeliverPrice
-    {
-        get => this.deliverPrice;
-        set
+        public int Quantity
         {
-            if (value <= 0)
+            get => this.quantity;
+            set
             {
-                throw new ArgumentException("Deliver price cannot be less or equal to 0!");
+                if (value <= 0)
+                {
+                    throw new ArgumentException("Quantity cannot be less or equal to 0!");
+                }
+
+                this.quantity = value;
             }
-
-            this.deliverPrice = value;
         }
-    }
 
-    public double PercentageMarkup
-    {
-        get => this.percentageMarkup;
-        set
+        public double DeliverPrice
         {
-            if (value <= 0)
+            get => this.deliverPrice;
+            set
             {
-                throw new ArgumentException("Percentage markup cannot be less or equal to 0!");
+                if (value <= 0)
+                {
+                    throw new ArgumentException("Deliver price cannot be less or equal to 0!");
+                }
+
+                this.deliverPrice = value;
             }
-
-            this.percentageMarkup = value;
         }
-    }
 
-    public double FinalPrice => this.DeliverPrice + (this.DeliverPrice * this.PercentageMarkup / 100);
+        public double PercentageMarkup
+        {
+            get => this.percentageMarkup;
+            set
+            {
+                if (value <= 0)
+                {
+                    throw new ArgumentException("Percentage markup cannot be less or equal to 0!");
+                }
 
-    public override string ToString()
-    {
-        return $"Product: {this.Name} <{this.Quantity}>\n" +
-               $"Deliver Price: {this.DeliverPrice:F2}\n" +
-               $"Percentage Markup: {this.PercentageMarkup:F2}\n" +
-               $"Final Price: {this.FinalPrice:F2}";
+                this.percentageMarkup = value;
+            }
+        }
+
+        public double FinalPrice => this.DeliverPrice + (this.DeliverPrice * this.PercentageMarkup / 100);
+
+        public override string ToString()
+        {
+            return $"Product: {this.Name} <{this.Quantity}>\n" +
+                   $"Deliver Price: {this.DeliverPrice:F2}\n" +
+                   $"Percentage Markup: {this.PercentageMarkup:F2}\n" +
+                   $"Final Price: {this.FinalPrice:F2}";
+        }
     }
 }
