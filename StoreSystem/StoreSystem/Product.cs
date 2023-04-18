@@ -8,5 +8,6 @@ namespace StoreSystem
 {
     internal class Product
     {
+
     }
 }
