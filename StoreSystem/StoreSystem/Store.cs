@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StoreSystem
 {
-    internal class Store:Product
+    internal class Store
     {
         private string name;
         private string type;

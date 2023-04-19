@@ -83,9 +83,10 @@ namespace StoreSystem
 
         public override string ToString()
         {
-        return ($"Product: {this.Name} <{this.Quantity}>\n") +
-               ($"Deliver Price: {this.DeliverPrice:F2}\n") +
-               ($"Percentage Markup: {this.PercentageMarkup:F2}\n") +
-               ($"Final Price: {this.FinalPrice:F2}");
+            return ($"Product: {this.Name} <{this.Quantity}>\n") +
+                   ($"Deliver Price: {this.DeliverPrice:F2}\n") +
+                   ($"Percentage Markup: {this.PercentageMarkup:F2}\n") +
+                   ($"Final Price: {this.FinalPrice:F2}");
+        }
     }
 }
