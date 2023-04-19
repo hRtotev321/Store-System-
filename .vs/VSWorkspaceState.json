@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\StoreSystem",
+    "\\StoreSystem\\StoreSystem"
   ],
-  "SelectedNode": "\\StoreSystem.sln",
+  "SelectedNode": "\\StoreSystem\\StoreSystem\\Program.cs",
   "PreviewInSolutionExplorer": false
 }
