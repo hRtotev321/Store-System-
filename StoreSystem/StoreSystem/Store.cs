@@ -21,6 +21,25 @@ namespace StoreSystem
             this.products = new Dictionary<string, List<Product>>();
         }
 
-        public string Name;
+        public new string Name;
+
+        public string Type { get; private set; }
+
+        internal object Products;
+
+        internal object AddProduct(Product product)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal object SellProduct(object product, int quantity)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal object GetRevenue()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

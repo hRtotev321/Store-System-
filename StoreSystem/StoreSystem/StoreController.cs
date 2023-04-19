@@ -59,10 +59,11 @@ namespace StoreSystem
                 return $"Error: Store {storeName} not found.";
             }
 
-            var product = new Product(type, name, quantity, price, markup);
+            Product product1 = new Product(type, name, quantity, price, markup);
+            Product product = product1;
             var result = store.AddProduct(product);
 
-            return result;
+            return (string)result;
         }
 
         public string SellProduct(List<string> args)
@@ -96,7 +97,8 @@ namespace StoreSystem
 
             var result = store.SellProduct(product, quantity);
 
-            return result;
+            object result1 = result;
+            return (string)result1;
         }
 
         public string StoreInfo(List<string> args)
