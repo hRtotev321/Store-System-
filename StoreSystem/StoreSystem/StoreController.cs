@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Windows.Forms.AxHost;
 
 namespace StoreSystem
 {
@@ -41,14 +38,11 @@ namespace StoreSystem
 
             string type = args[0];
             string name = args[1];
-            int quantity = 0;
-            decimal price = 0;
-            decimal markup = 0;
             string storeName = args[5];
 
             if (string.IsNullOrWhiteSpace(type) || string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(storeName)
-                || !int.TryParse(args[2], out quantity) || !decimal.TryParse(args[3], out price)
-                || !decimal.TryParse(args[4], out markup))
+                || !int.TryParse(args[2], out int quantity) || !decimal.TryParse(args[3], out decimal price)
+                || !decimal.TryParse(args[4], out decimal markup))
             {
                 return "Error: Invalid arguments for receive product command.";
             }
@@ -59,10 +53,11 @@ namespace StoreSystem
                 return $"Error: Store {storeName} not found.";
             }
 
-            var product = new Product(type, name, quantity, price, markup);
+            Product product1 = new Product(type, name, quantity, price, markup);
+            Product product = product1;
             var result = store.AddProduct(product);
 
-            return result;
+            return (string)result;
         }
 
         public string SellProduct(List<string> args)
@@ -73,11 +68,10 @@ namespace StoreSystem
             }
 
             string name = args[0];
-            int quantity = 0;
             string storeName = args[2];
 
             if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(storeName)
-                || !int.TryParse(args[1], out quantity))
+                || !int.TryParse(args[1], out int quantity))
             {
                 return "Error: Invalid arguments for sell product command.";
             }
@@ -96,7 +90,8 @@ namespace StoreSystem
 
             var result = store.SellProduct(product, quantity);
 
-            return result;
+            object result1 = result;
+            return (string)result1;
         }
 
         public string StoreInfo(List<string> args)

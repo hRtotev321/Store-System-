@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace StoreSystem
 {
-    internal class Store:Product
+    internal class Store
     {
-        private string name;
+        private readonly string name;
         private string type;
         private double revenue;
         private readonly Dictionary<string, List<Product>> products;
@@ -22,5 +22,24 @@ namespace StoreSystem
         }
 
         public string Name;
+
+        public string Type { get; private set; }
+
+        internal object Products;
+
+        internal object AddProduct(Product product)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal object SellProduct(object product, int quantity)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal object GetRevenue()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
