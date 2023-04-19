@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace StoreSystem
 {
@@ -30,6 +31,7 @@ namespace StoreSystem
                 {
                     throw new ArgumentException("Product name must not be null or empty!");
                 }
+
 
                 this.name = value;
             }
@@ -81,10 +83,10 @@ namespace StoreSystem
 
         public override string ToString()
         {
-            return $"Product: {this.Name} <{this.Quantity}>\n" +
-                   $"Deliver Price: {this.DeliverPrice:F2}\n" +
-                   $"Percentage Markup: {this.PercentageMarkup:F2}\n" +
-                   $"Final Price: {this.FinalPrice:F2}";
+            return ($"Product: {this.Name} <{this.Quantity}>\n") +
+                   ($"Deliver Price: {this.DeliverPrice:F2}\n") +
+                   ($"Percentage Markup: {this.PercentageMarkup:F2}\n") +
+                   ($"Final Price: {this.FinalPrice:F2}");
         }
     }
 }
